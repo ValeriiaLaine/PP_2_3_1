@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify or correct the entered data</title>
+</head>
+<body>
+    <b>Modify or correct</b>
+    <form th:method = "PATCH" th:action = "@{/users/{id} (id = ${user.getId()})}" th:object="${user}">
+        <label for = "firstName"> Modify or correct firstname: </label>
+        <input type = "text" th:field = "*{firstName}" id = "firstName">
+        <br/>
+
+        <label for = "lastName"> Modify or correct lastname: </label>
+        <input type = "text" th:field = "*{lastName}" id = "lastName">
+        <br/>
+
+        <label for = "gender"> Correct gender: </label>
+        <input type = "text" th:field = "*{gender}" id = "gender">
+        <br/>
+
+        <label for = "nationality"> Correct nationality: </label>
+        <input type = "text" th:field = "*{nationality}" id = "nationality">
+        <br/>
+
+        <input type = "submit" value = "Modify or correct user's data"/>
+        <br/>
+
+        <a th:href="@{/users/{id} (id = ${user.getId()})}"> Return and cancel any changes</a>
+    </form>
+</body>
+</html>
